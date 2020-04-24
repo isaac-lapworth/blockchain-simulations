@@ -22,7 +22,7 @@ public:
 	time_t confirmationTime;
 
 	static std::ofstream& csv;
-	static std::mutex f; // protects csv output
+	static std::mutex f; // protects .csv output
 
 	Transaction(unsigned int id, unsigned int input, unsigned int output);
 

@@ -1,6 +1,4 @@
 // Merkle trees are a "hash-tree" data structure used to store transactions in a block, with the Merkle root value used in mining.
-// They also allow for more efficient transaction verification, transmission, and disk space usage, which are not currently in the simulation.
-
 #include <vector>
 #include <string>
 
@@ -8,7 +6,6 @@
 #include "Transaction.h"
 
 // the tree is stored as a vector, with the children of index n at 2n and 2n+1
-// it is built from the leaves to the root by combining the roots of sub-trees by concatenating the hashes of their values
 MerkleTree::MerkleTree(std::vector<Transaction> transactions) {
 
 	// store the transaction ids 

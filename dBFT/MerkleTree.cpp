@@ -1,13 +1,11 @@
 // Merkle trees are a "hash-tree" data structure used to store transactions in a block, with the Merkle root value used in mining.
-// They also allow for more efficient O(log(n)) transaction verification, transmission, and disk space usage, which are not currently in the simulation.
-
 #include <vector>
 #include <string>
 
 #include "MerkleTree.h"
 #include "Transaction.h"
 
-// the tree is stored as a vector, with the children of index n at 2n and 2n+1, similar to a heap array
+// the tree is stored as a vector, with the children of index n at 2n and 2n+1
 // it is built from the leaves to the root by combining the roots of sub-trees by concatenating the hashes of their values
 MerkleTree::MerkleTree(std::vector<Transaction> transactions) {
 
@@ -19,7 +17,7 @@ MerkleTree::MerkleTree(std::vector<Transaction> transactions) {
 	// as binary trees, Merkle trees need an even number of leaves -> we duplicate the last element if this is the case
 	if (transactions.size() % 2 == 1) transactions.push_back(transactions.back());
 
-	// a library hash function is used here as it is faster than SHA-256 and we favour randomness over security
+	// a library hash function is used here as it is faster than SHA-256
 	std::hash<std::string> hash;
 
 	// initially all transactions are hashed to form single-node trees - the leaves of the final tree

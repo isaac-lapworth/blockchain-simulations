@@ -16,7 +16,7 @@
 extern const int BLOCK_SIZE = 5;
 // targeted average time that a block is generated
 extern const int BLOCK_TIME = 10;
-// number of non-zeroes required to begin with
+// number of non-zeros required to begin with
 extern const int INITIAL_DIFFICULTY = 2;
 // number of blocks after which the difficulty is adjusted
 extern const int ADJUSTMENT_FREQUENCY = 20;

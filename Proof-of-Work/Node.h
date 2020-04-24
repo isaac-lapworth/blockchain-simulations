@@ -19,7 +19,7 @@ private:
 	Network& network;
 	std::vector<std::vector<std::tuple<Semaphore, int, int>>>& semaphores;
 	std::map<int, Block>& sharedBlocks;
-	int difficulty = INITIAL_DIFFICULTY; // the number of leading zeroes required on the hash of a block to be able to add it to the chain (initially)
+	int difficulty = INITIAL_DIFFICULTY; // the number of leading zeros required on the hash of a block to be able to add it to the chain (initially)
 	
 	static std::mutex s; // to protect the semaphore data array
 	static std::mutex b; // to protect shared block array

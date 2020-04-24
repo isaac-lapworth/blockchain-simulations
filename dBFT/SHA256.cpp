@@ -1,6 +1,4 @@
 // an implementation of SHA-256, works on input strings that are a whole number of bytes 
-// implemented as an exercise to practice C++ (this was the first piece of project code written and had not previously used the language)
-
 #include <string>
 #include <bitset>
 #include <sstream>
@@ -29,7 +27,7 @@ std::string pad(std::string data) {
 	std::bitset<8> bitPad(0x80);
 	data += static_cast<char>(bitPad.to_ulong());
 
-	// pad with K zeroes until L + 1 + K + 64 is a multiple of 512, where K >= 0 (actually K >= 7)
+	// pad with K zeros until L + 1 + K + 64 is a multiple of 512, where K >= 0 (actually K >= 7)
 	std::bitset<8> zeroPad(0x00);
 	char zeroByte = static_cast<char>(zeroPad.to_ulong());
 	long long int length = initialLength + 72;

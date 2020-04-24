@@ -103,7 +103,7 @@ void Monitor::display(std::vector<Node*> nodes, Network* network) {
 		box(messageWin, 0, 0);
 		mvwprintw(messageWin, 0, 0, "Message Queues");
 		// refresh message queue table
-		try { // try-catch handles intermittent PDCurses bug
+		try {
 			for (unsigned i = 0; i < AVAILABLE_CONTEXTS; i++) {
 				auto flags = semaphores[i];
 				for (int j = 0; j < static_cast<int>(flags.size()); j++) {

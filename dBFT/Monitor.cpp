@@ -80,10 +80,6 @@ void Monitor::display(std::vector<Node*> nodes, std::vector<std::tuple<unsigned,
 	// continuously refresh data
 	while (true) {
 
-		// wrapped in try-catch here 
-		// as the PDCurses library is a number of years old, have encountered intermittent errors occurring in the C code 
-		// possibly something to do with 32/64 bit incompatibility
-		// tends to occur when using small network parameters such that threads very frequently write to their local/shared data, creating race conditions
 		try {
 
 			// get most recently confirmed transactions

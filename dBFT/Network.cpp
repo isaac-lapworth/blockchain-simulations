@@ -1,5 +1,5 @@
 // Network class is used to collectively simulate all peers that do not run a blockchain node - i.e. NEO users
-// In real life the number of non-consensus nodes is large compared to those involved in consensus
+// In the real network the number of non-consensus nodes is large compared to those involved in consensus
 #include <iostream>
 #include <thread>
 #include <random>

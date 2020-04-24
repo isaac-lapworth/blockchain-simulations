@@ -1,6 +1,3 @@
-// A transaction represents a spending of currency. The difference between input and output is the transaction "fee", paid as incentive for miners to include the transaction in their next block.
-// Real blockchains commonly use public-key cryptography (e.g. ECDSA) to allow nodes to verify the integrity of transactions, as well verifying correctness - i.e. that the sender has currency available to spend from previous transactions, is not double-spending etc. This is not in the simulation.
-
 #include <string>
 #include <array>
 #include <sstream>
@@ -14,7 +11,7 @@ extern const unsigned AVAILABLE_CONTEXTS;
 extern const int BLOCK_SIZE;
 
 std::mutex Transaction::f;
-static std::ofstream out("../../../Final\ Paper/template/data/example.csv");
+static std::ofstream out("output_directory/example.csv");
 std::ofstream& Transaction::csv = out;
 
 // create a transaction from sender to recipient
@@ -24,7 +21,7 @@ Transaction::Transaction(unsigned int id, unsigned int input, unsigned int outpu
 	collected = false;
 }
 
-// converts an int to a hexadecimal string with leading zeroes
+// converts an int to a hexadecimal string with leading zeros
 std::string Transaction::toHexString(unsigned int i) {
 	std::stringstream stream;
 	stream << std::setfill('0') << std::setw(8) << std::hex << i;

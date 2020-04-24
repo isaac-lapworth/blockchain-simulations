@@ -16,7 +16,6 @@ private:
 
 	Network& network;
 
-	// utils
 	std::mt19937_64 rng;
 	unsigned long transactionCounter; // records from which point to continue listening for transactions each round 
 
@@ -44,7 +43,7 @@ private:
 	void proposeBlock();
 	// the delegates validate the proposal
 	void validateProposal();
-	// all nodes count repsonses to see if a majority exists 
+	// all nodes count responses to see if a majority exists 
 	bool listenForResponses();
 	// if there are a majority of prepare responses publish a full block
 	void publishFullBlock();

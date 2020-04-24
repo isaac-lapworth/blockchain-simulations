@@ -12,7 +12,7 @@ extern const int INITIAL_DIFFICULTY;
 extern const bool BINARY_HASH;
 
 bool Block::isValid(std::string hash, int difficulty) {
-	// check leading zeroes of the hash
+	// check leading zeros of the hash
 	int i = 0;
 	while (i < difficulty) {
 		if (BINARY_HASH) {
@@ -45,7 +45,7 @@ bool Block::mine() {
 	// concatenate and hash the block data
 	hash = sha256(previousHash + transactions.getMerkleRoot() + std::to_string(nonce));
 
-	// check leading zeroes of the hash
+	// check leading zeros of the hash
 	if (!isValid(hash, difficulty)) return false;
 
 	// record when the block is solved

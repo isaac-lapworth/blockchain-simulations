@@ -51,9 +51,9 @@ Node::Node(unsigned int id, Network& network, std::vector<std::vector<std::tuple
 void Node::broadcast(std::tuple<Semaphore, int, int, int> message) {
 	activity = "BROADCASTING MESSAGE";
 	for (unsigned i = 0; i < NUMBER_OF_NODES; i++) {
+		// std::vector may change position in memory when adding/erasing elements so must be read atomically
 		s.lock();
 		semaphores[i].push_back(message);
-		// std::vector may change position in memory when adding/erasing elements so must be read atomically
 		s.unlock();
 	}
 }
@@ -87,7 +87,7 @@ bool Node::timedOut() {
 void Node::wait(bool speaker) {
 	activity = "MONITORING NETWORK  ";
 
-	// if the node is the speaker, 'listen' for transactions until the waiting period is over
+	// if the node is the speaker, listen for transactions until the waiting period is over
 	if (speaker) {
 		time_t until = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() + BLOCK_TIME * 1000;
 		while (std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count() < until) {
